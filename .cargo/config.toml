@@ -1,0 +1,11 @@
+[target.thumbv7m-none-eabi]
+runner = "probe-run --chip STM32F103C8"
+#runner = "gdb-multiarch -q -x openocd.gdb"
+#runner = "gdb-multiarch -q -x stlink.gdb"
+
+rustflags = ["-C", "link-arg=-Tlink.x", ] 
+
+[build]
+target = "thumbv7m-none-eabi"
+
+
