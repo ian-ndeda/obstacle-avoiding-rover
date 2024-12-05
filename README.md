@@ -12,7 +12,7 @@
 <a id="intro"></a>
 ## Introduction
 
-This is a simple project that uses Rust's [RTIC](https://rtic.rs/2/book/en/) framework to create a 4WD rover that can avoid obstacles. It is implemented on the STM32F103 board. In orer to reduce the number of control pins used by the microcontroller in motor control, a shift register is used together with two L293D motor drivers. An HC-SR04 ultrasonic sensor module mounted on a servo motor for actuation detects the obstacles. Remote communication with the system is achieved using an HC-06 Bluetooth module.
+This is a simple project that uses Rust's [RTIC](https://rtic.rs/2/book/en/) framework to create a 4WD rover that can avoid obstacles. It is implemented on the STM32F103 board. In order to reduce the number of control pins used by the microcontroller in motor control, a shift register is used together with two L293D motor drivers. An HC-SR04 ultrasonic sensor module mounted on a servo motor for actuation detects the obstacles. Remote communication with the system is achieved using an HC-06 Bluetooth module.
 
 `Probe-rs` is used for debugging and flashing of the application program. You can learn more about it [here](https://probe.rs/).
 
@@ -52,7 +52,7 @@ This is a simple project that uses Rust's [RTIC](https://rtic.rs/2/book/en/) fra
 | G	| Stop 		|
 | H	| Donut		|
 
-To send these remote commands we'd have to set up the serial Bluetooth App. 
+To send these remote commands we have to set up the serial Bluetooth App. 
 
 Navigate to settings and under `Newline` select `None`.
 
@@ -111,7 +111,6 @@ The application code can be found [here](https://github.com/ian-ndeda/obstacle-a
 
 Below is the final set-up of the entire thing.
 
-
 <p align="center">
   <img alt="setup1" src="https://github.com/user-attachments/assets/473adee6-2f33-4f78-ad40-8c40e810ccc5" width="356" height="200">
 </p>
@@ -124,7 +123,7 @@ Below is the final set-up of the entire thing.
   <img alt="setup3" src="https://github.com/user-attachments/assets/adc9c5d7-32b7-412a-b592-eb0103a0b2b2" width="356" height="200">
 </p>
 
-After flashing the program into the STM32F103 the console will be as shown below every time a command is given.
+After flashing the program into the STM32F103, the console from where `probe-rs` is running will be something like what is shown below. This is after the system is remotely given commands.
 
 >:exclamation: Note that the program is in debug mode. You therefore cannot flash it in `--release` mode.
 
@@ -139,7 +138,7 @@ A little demonstration of the project.
   <img alt="rover-demo" src="https://github.com/user-attachments/assets/aaf069bd-b3e1-4881-ad45-ce7413774aa2" width="250" height="445">
 </p>
 
-A little celebration is in order.
+A little celebration is in order. (Here the `Donut` command is given).
 
 <p align="center">
   <img alt="rover-donut" src="https://github.com/user-attachments/assets/b2419794-e499-470f-9c48-1af0dd6c33f6" width="250" height="250">
@@ -150,8 +149,8 @@ A little celebration is in order.
 
 Possible improvements:
 - Program some speed control into the application code. One could also explore hardware solutions.
-- The HRS04 ultrasonic sensor is quite accurate. It however has some challanges. 
-	- First, it's readings are affected by temperature and humidity. One could solve this by adding a temperature and humidity sensor to modulate the distance values for this.
-	- The HRS04 can also give wrong reckonings when the obstacle is at an angle to its ine of sight or is made of 'fuzzy' material.  Other distance measuring methods can be exploited to correct or this. A possible candidate is the VL53L0X Time-of-Flight Sensor. 
+- The HRS04 ultrasonic sensor is quite accurate. It however has some shortcomings. 
+	- First, it's readings are affected by temperature and humidity. One could solve this by adding a temperature and humidity sensor to correct for this.
+	- The HRS04 can also give wrong reckonings when the obstacle is at an angle to its line of sight or is made of 'fuzzy' material.  Other distance measuring methods can be exploited to circumvent these challanges. A possible candidate is the VL53L0X Time-of-Flight Sensor. 
 - Create a handheld console for remote control insted of using the serial app.
 - Mount [this](https://github.com/ian-ndeda/self-aligning-sat-dish/blob/main/README.md) self-aligning dish on to the rover and connect them electrically.  
