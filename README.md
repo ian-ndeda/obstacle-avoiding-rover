@@ -1,7 +1,7 @@
 # Obstacle Avoiding Rover
 ## Table of Contents
-- [Introduction](#introduction)
-- [Requirements](#requirements)
+- [Introduction](#intro)
+- [Requirements](#reqs)
 - [Commands](#commands)
 - [Electrical Schematic](#schematic)
 - [PCB](#pcb)
@@ -9,7 +9,7 @@
 - [Results](#results)
 - [Recommendations](#recomm)
 
-
+<a id="intro"></a>
 ## Introduction
 
 This is a simple project that uses Rust's [RTIC](https://rtic.rs/2/book/en/) framework to create a 4WD rover that can avoid obstacles. It is implemented on the STM32F103 board. In orer to reduce the number of control pins used by the microcontroller in motor control, a shift register is used together with two L293D motor drivers. An HC-SR04 ultrasonic sensor module mounted on a servo motor for actuation detects the obstacles. Remote communication with the system is achieved using an HC-06 Bluetooth module.
@@ -294,13 +294,13 @@ After flashing the program into the STM32F103 the console will be as shown below
 A little demonstration of the project.
 
 <p align="center">
-  <img alt="rover-demo" src="https://github.com/user-attachments/assets/aaf069bd-b3e1-4881-ad45-ce7413774aa2" width="200" height="356">
+  <img alt="rover-demo" src="https://github.com/user-attachments/assets/aaf069bd-b3e1-4881-ad45-ce7413774aa2" width="250" height="445">
 </p>
 
 A little celebration is in order.
 
 <p align="center">
-  <img alt="rover-donut" src="https://github.com/user-attachments/assets/b2419794-e499-470f-9c48-1af0dd6c33f6" width="200" height="200">
+  <img alt="rover-donut" src="https://github.com/user-attachments/assets/b2419794-e499-470f-9c48-1af0dd6c33f6" width="250" height="250">
 </p>
 
 <a id="recomm"></a>
